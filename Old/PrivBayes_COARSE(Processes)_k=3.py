@@ -2230,7 +2230,7 @@ if __name__ == "__main__":
     del Completed_Outputs
     gc.collect()
 
-    NumOfThreads = multiprocessing.cpu_count() - 1
+    NumOfThreads = int(multiprocessing.cpu_count()/2) + 1
     low_bound = 0
     up_bound = NumOfThreads
 
