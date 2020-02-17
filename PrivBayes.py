@@ -889,7 +889,7 @@ def GetProbabilities(Child_Parents,Datasets,Dataset_size,NumOfAttrs,k,Attr_domai
 
     Attribute_dict = {A[i] : i for i in range (0,len(A))}
     A_subs = GetSubsets(A,k,0) # Creating A' sets
-    M  = len(Datasets) # Num of users
+    M = len(Datasets) # Num of users
 
     # Calculate the probabilities
 
@@ -2189,6 +2189,9 @@ def main():
 
         while (split_choice < 1) or (split_choice > 4) or (not isinstance(split_choice,int)):
             split_choice = int(input("Choose how to split the dataset: "))
+
+        Attr_dict = {attributes[i] : i for i in range (0,len(attributes))}
+        Datasets,M = SplitDataset(data,M,Attr_domains,Attr_dict,split_choice)
 
         k = int(input("Enter the degree of the Bayesian Network you wish to build: "))
 
